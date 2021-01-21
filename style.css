@@ -9,6 +9,12 @@
 }
 
 
+body {
+    font-family: sans-serif;
+    background-color: rgb(39, 42, 50);
+    cursor: default;
+}
+
 .page-container {
     display: flex;
     flex-direction: column;
@@ -18,19 +24,33 @@
 header {
     display: flex;
     justify-content: center;
-    background-color: rgb(55, 164, 226);
+    background-color: rgb(52, 192, 169);
     color: white;
-    font-size: 30px;
+    font-size: 22px;
+    border-bottom: 1px solid rgb(44, 255, 220);
+    box-shadow: 0px 1px 8px rgb(0, 0, 0);
+    padding: 10px;
 }
 
-#header {
-    padding: 20px;
+/* #header {
+    padding: 10px;
+} */
+
+.info-container {
+    display: flex;
+    justify-content: center;
 }
 
-body {
-    font-family: sans-serif;
-    background-color: rgb(39, 42, 50);
-    cursor: default;
+.info-card {
+    text-align: left;
+    background-color: rgb(255, 123, 62);
+    color: white;
+    margin: 20px;
+    width: 350px;
+    height: 220px;
+    border-radius: 2px;
+    border: 1px solid rgb(255, 152, 104);
+    box-shadow: 1px 1px 8px rgb(0, 0, 0); 
 }
 
 .container {
@@ -49,7 +69,8 @@ body {
     width: 80px;
     border-radius: 2px;
     font-size: 12px;
-    color: rgb(80, 80, 80);
+    color: rgb(73, 73, 73);
+    border: 1px solid rgb(173, 173, 173);
 }
 
 .outer-cards-counter {
@@ -59,6 +80,7 @@ body {
 
 .cards-container {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
     width: 84%;
  
@@ -70,13 +92,20 @@ body {
     background-color: rgb(39, 143, 228);
     color: white;
     margin: 20px;
-    width: 360px;
-    height: 180px;
-    border-radius: 4px;
+    width: 350px;
+    height: 220px;
+    border-radius: 2px;
+    border: 1px solid rgb(117, 193, 255);
+    box-shadow: 1px 1px 8px rgb(0, 0, 0);
+}
+
+.info-card {
+
 }
 
 .card-info {
-    padding: 9px 0px 0px 20px;
+    padding: 13px 0px 0px 25px;
+    font-size: 15px;
 }
 
 .read-delete-button-container {
@@ -85,7 +114,9 @@ body {
 }
 
 .card-button {
-    margin: 10px 6px;
+    margin: 20px 6px;
 }
 
-.delete-button {}
+.delete-button {
+
+}
