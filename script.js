@@ -44,11 +44,11 @@ let bookT = new Book('bookT', 'authorB', 100, 'yes');
 myLibrary.push(bookT);
 let bookU = new Book('bookU', 'authorC', 100, 'no');
 myLibrary.push(bookU);
-let bookV = new Book('A', 'authorD', 100, 'yes');
+let bookV = new Book('A BOOK OF BOOKS', 'authorD', 100, 'yes');
 myLibrary.push(bookV);
-let bookW = new Book('B', 'authorE', 100, 'yes');
+let bookW = new Book('BOATS AND CARS', 'authorE', 100, 'yes');
 myLibrary.push(bookW);
-let bookX = new Book('C', 'authorF', 100, 'no');
+let bookX = new Book('CATS PLEASE', 'authorF', 100, 'no');
 myLibrary.push(bookX);
 
 
@@ -65,44 +65,60 @@ function Book(title, author, pages, read) {
     this.index = title;
 }
 
+
 function addBookToLibrary() {
-    const title = prompt('Book title');
-    const author = prompt('Author');
-    const pages = prompt('Pages');
-    let read;
-    while (read !== 'yes' && read !== 'no') {
-        read = prompt('Have you read this? (yes/no)')
-    }
+
+    document.body.style.overflow = 'scroll';
+
+    const title = document.querySelector('.title').value;
+    const author = document.querySelector('.author').value;    
+    const pages = document.querySelector('.pages').value;
+    const read = document.querySelector('.read').value;
+
     const newBook = new Book(title, author, pages, read);
-    
     myLibrary.push(newBook);
 
-    console.table(myLibrary);
+    document.querySelector('.title').value = '';
+    document.querySelector('.author').value = '';
+    document.querySelector('.pages').value = '';
+    document.querySelector('.read').value = '';
 
     start();
+    console.table(myLibrary);
+
 }
 
 function drawBooks(myLibrary) {
 
-    
+    const readUnread = myLibrary.reduce(function(total, book) {
+        total[book.read]++;
+        return total;
+    }, {
+        yes: 0,
+        no: 0
+    });
+
+    const unread = readUnread.no;
+
+    console.log(unread);    
+
     document.querySelector('.info-container').innerHTML = '';
     let info;
     
     info = document.createElement('div');
     info.innerHTML = 
         `<div class='info-card'>
-            <div class='card-info'>Store your book collection and keep track of the books you still have yet to read in this app.</div>
-            <br>
-            <div class='card-info'>Total books: ${myLibrary.length}</div>
-            <div class='card-info'>Unread books: </div>
-            <div class='new-book-button-container'>
-                <div class='button card-button new-book-button'>NEW BOOK</div>
+            <div class='info-card-info-container'>
+                <div class='card-info'>A list of all your books</div><br>
+                <div class='card-info'>Total books: ${myLibrary.length}</div>
+                <div class='card-info'>Unread books: ${unread}</div>
+                <div class='new-book-button-container'>
+                    <a href='#modal' class='button card-button new-book-button'>ADD BOOK</a>
+                </div>
             </div>
         </div>`;
 
-        document.querySelector('.info-container').appendChild(info); 
-
-
+    document.querySelector('.info-container').appendChild(info); 
 
 
 
@@ -114,14 +130,15 @@ function drawBooks(myLibrary) {
         book = document.createElement('div');
         book.innerHTML = 
             `<div class='book-card'>
-                <div class='card-info'>Title: ${myLibrary[i].title}</div>
-                <div class='card-info'>Author: ${myLibrary[i].author} </div>
-                <div class='card-info'>Pages: ${myLibrary[i].pages} </div>
-                <div class='card-info'>Author: ${myLibrary[i].author} </div>
-                <div class='card-info'>Have you read this book? ${myLibrary[i].read} </div>
-                <div class='read-delete-button-container'>
-                    <div class='button card-button read-button ${myLibrary[i].index}'>READ</div>
-                    <div class='button card-button delete-button ${myLibrary[i].index}'>DELETE</div>
+                <div class='card-info-container'>
+                    <div class='card-info'>${myLibrary[i].title}</div>
+                    <div class='card-info'>by ${myLibrary[i].author} </div>
+                    <div class='card-info'>${myLibrary[i].pages} pages</div>
+                    <div class='card-info'>Have you read this book? ${myLibrary[i].read} </div>
+                    <div class='read-delete-button-container'>
+                        <div class='button card-button read-button ${myLibrary[i].index}'>READ</div>
+                        <div class='button card-button delete-button ${myLibrary[i].index}'>DELETE</div>
+                    </div>
                 </div>
             </div>`;
 
@@ -169,7 +186,29 @@ function start() {
     drawBooks(myLibrary);
 
     const newBookButton = document.querySelector('.new-book-button');
-    newBookButton.addEventListener('mousedown', addBookToLibrary);
+    newBookButton.addEventListener('mousedown', function () {
+        document.body.style.overflow = 'hidden';
+    });
+
+    const submit = document.querySelector('.submit-button');
+    submit.addEventListener('mousedown', function() {
+        if (document.querySelector('.title').value !== ''
+                && document.querySelector('.author').value !== ''
+                && document.querySelector('.pages').value !== ''
+                && document.querySelector('.read').value !== '') {
+            addBookToLibrary();
+        } else document.body.style.overflow = 'scroll';
+    });
+    
+
+    const closeModal = document.querySelector('.modal_close');
+    closeModal.addEventListener('mousedown', function() {
+        document.body.style.overflow = 'scroll';
+        document.querySelector('.title').value = '';
+        document.querySelector('.author').value = '';
+        document.querySelector('.pages').value = '';
+        document.querySelector('.read').value = '';
+    });
 
     const deleteButton = document.querySelectorAll('.delete-button');
     for (let i = 0; i < deleteButton.length; i++) {
