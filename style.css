@@ -180,7 +180,7 @@ header {
 }
 
 .modal_content {
-    width: 400px;
+    width: 360px;
     height: 400px;
     background-color: rgb(248, 248, 248);
     position: absolute;
@@ -210,7 +210,7 @@ header {
 .input_field {
     margin: 16px;
     height: 32px;
-    width: 280px;
+    width: 240px;
     padding-left: 20px;
     border: 0px;
     border-radius: 0px;
