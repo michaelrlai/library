@@ -11,8 +11,9 @@
 
 body {
     font-family: sans-serif;
-    background-color: rgb(39, 42, 50);
+    background-color: white;
     cursor: default;
+    color: rgb(63, 63, 63);
 }
 
 .page-container {
@@ -24,11 +25,9 @@ body {
 header {
     display: flex;
     justify-content: center;
-    background-color: rgb(52, 192, 169);
+    background-color: rgb(131, 218, 203);
     color: white;
     font-size: 22px;
-    border-bottom: 1px solid rgb(44, 255, 220);
-    box-shadow: 0px 1px 8px rgb(0, 0, 0);
     padding: 10px;
 }
 
@@ -43,14 +42,15 @@ header {
 
 .info-card {
     text-align: left;
-    background-color: rgb(255, 123, 62);
-    color: white;
-    margin: 20px;
+    background-color: rgb(238, 247, 255);
+    margin: 60px 0px 20px 0px;
     width: 350px;
-    height: 220px;
-    border-radius: 2px;
-    border: 1px solid rgb(255, 152, 104);
-    box-shadow: 1px 1px 8px rgb(0, 0, 0); 
+    height: 210px;
+}
+
+.new-book-button-container {
+    display: flex;
+    justify-content: center;
 }
 
 .container {
@@ -58,19 +58,14 @@ header {
     justify-content: center;
 }
 
-.new-button-container {
-    padding: 30px 0px 10px 0px;
-}
-
 .button {
     text-align: center;
     background-color: lightgray;
     padding: 4px;
     width: 80px;
-    border-radius: 2px;
-    font-size: 12px;
-    color: rgb(73, 73, 73);
-    border: 1px solid rgb(173, 173, 173);
+    border-radius: 30px;
+    font-size: 10px;
+    color: white;
 }
 
 .outer-cards-counter {
@@ -89,14 +84,10 @@ header {
 
 .book-card {
     text-align: left;
-    background-color: rgb(39, 143, 228);
-    color: white;
+    background-color: rgb(248, 248, 248);
     margin: 20px;
     width: 350px;
-    height: 220px;
-    border-radius: 2px;
-    border: 1px solid rgb(117, 193, 255);
-    box-shadow: 1px 1px 8px rgb(0, 0, 0);
+    height: 210px;
 }
 
 .info-card {
@@ -106,6 +97,7 @@ header {
 .card-info {
     padding: 13px 0px 0px 25px;
     font-size: 15px;
+    width: 320px;
 }
 
 .read-delete-button-container {
@@ -114,9 +106,10 @@ header {
 }
 
 .card-button {
-    margin: 20px 6px;
+    margin: 20px 10px;
 }
 
-.delete-button {
-
+.new-book-button {
+    background-color: rgb(172, 216, 255);
+    margin-top: 28px;
 }

@@ -84,6 +84,28 @@ function addBookToLibrary() {
 
 function drawBooks(myLibrary) {
 
+    
+    document.querySelector('.info-container').innerHTML = '';
+    let info;
+    
+    info = document.createElement('div');
+    info.innerHTML = 
+        `<div class='info-card'>
+            <div class='card-info'>Store your book collection and keep track of the books you still have yet to read in this app.</div>
+            <br>
+            <div class='card-info'>Total books: ${myLibrary.length}</div>
+            <div class='card-info'>Unread books: </div>
+            <div class='new-book-button-container'>
+                <div class='button card-button new-book-button'>NEW BOOK</div>
+            </div>
+        </div>`;
+
+        document.querySelector('.info-container').appendChild(info); 
+
+
+
+
+
     document.querySelector('.cards-container').innerHTML = '';
     let book;
 
