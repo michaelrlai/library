@@ -120,7 +120,7 @@ header {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    min-width: 400px;
+    min-width: 350px;
     width: 84%;
 
 }
