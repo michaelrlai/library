@@ -226,7 +226,7 @@ myLibrary.push(bookX); */
 
 
 myLibrary = JSON.parse(localStorage.getItem('savedLibrary'));
-if (myLibrary === null) myLibrary = [];
 
 
 start();
+
