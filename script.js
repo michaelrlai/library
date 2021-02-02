@@ -1,4 +1,3 @@
-localStorage.localStorage.clear();
 
 class Book {
     constructor(title, author, pages, read) {
@@ -227,7 +226,7 @@ myLibrary.push(bookX); */
 
 
 
-myLibrary = JSON.parse(localStorage.getItem('savedLibrary'));
+//myLibrary = JSON.parse(localStorage.getItem('savedLibrary'));
 
 
 start();
