@@ -1,68 +1,11 @@
-
-
-let myLibrary = [];
-
-let bookA = new Book('Z', 'authorA', 100, 'yes');
-myLibrary.push(bookA);
-let bookB = new Book('Y', 'authorB', 100, 'yes');
-myLibrary.push(bookB);
-let bookC = new Book('X', 'authorC', 100, 'no');
-myLibrary.push(bookC);
-let bookD = new Book('W', 'authorD', 100, 'yes');
-myLibrary.push(bookD);
-let bookE = new Book('bookE', 'authorE', 100, 'yes');
-myLibrary.push(bookE);
-let bookF = new Book('bookF', 'authorF', 100, 'no');
-myLibrary.push(bookF);
-let bookG = new Book('bookG', 'authorA', 100, 'yes');
-myLibrary.push(bookG);
-let bookH = new Book('bookH', 'authorB', 100, 'yes');
-myLibrary.push(bookH);
-let bookI = new Book('bookI', 'authorC', 100, 'no');
-myLibrary.push(bookI);
-let bookJ = new Book('bookJ', 'authorD', 100, 'yes');
-myLibrary.push(bookJ);
-let bookK = new Book('bookK', 'authorE', 100, 'yes');
-myLibrary.push(bookK);
-let bookL = new Book('bookL', 'authorF', 100, 'no');
-myLibrary.push(bookL);
-let bookM = new Book('bookM', 'authorA', 100, 'yes');
-myLibrary.push(bookM);
-let bookN = new Book('bookN', 'authorB', 100, 'yes');
-myLibrary.push(bookN);
-let bookO = new Book('bookO', 'authorC', 100, 'no');
-myLibrary.push(bookO);
-let bookP = new Book('bookP', 'authorD', 100, 'yes');
-myLibrary.push(bookP);
-let bookQ = new Book('bookQ', 'authorE', 100, 'yes');
-myLibrary.push(bookQ);
-let bookR = new Book('bookR', 'authorF', 100, 'no');
-myLibrary.push(bookR);
-let bookS = new Book('bookS', 'authorA', 100, 'yes');
-myLibrary.push(bookS);
-let bookT = new Book('bookT', 'authorB', 100, 'yes');
-myLibrary.push(bookT);
-let bookU = new Book('bookU', 'authorC', 100, 'no');
-myLibrary.push(bookU);
-let bookV = new Book('A BOOK OF BOOKS', 'authorD', 100, 'yes');
-myLibrary.push(bookV);
-let bookW = new Book('BOATS AND CARS', 'authorE', 100, 'yes');
-myLibrary.push(bookW);
-let bookX = new Book('CATS PLEASE', 'authorF', 100, 'no');
-myLibrary.push(bookX);
-
-
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-
-    this.info = function () {
-        return title + ' by ' + author + ', ' + pages + ' pages, ' + read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.index = title;
     }
-
-    this.index = title;
 }
 
 
@@ -103,9 +46,8 @@ function drawBooks(myLibrary) {
     console.log(unread);    
 
     document.querySelector('.info-container').innerHTML = '';
-    let info;
     
-    info = document.createElement('div');
+    let info = document.createElement('div');
     info.innerHTML = 
         `<div class='info-card'>
             <div class='info-card-info-container'>
@@ -119,7 +61,6 @@ function drawBooks(myLibrary) {
         </div>`;
 
     document.querySelector('.info-container').appendChild(info); 
-
 
 
     document.querySelector('.cards-container').innerHTML = '';
@@ -173,7 +114,12 @@ function readBook() {
     console.table(myLibrary); 
 }
 
+function saveLibary() {
+    localStorage.setItem('savedLibrary', myLibrary);
+}
+
 function start() {
+    saveLibary();
 
     myLibrary.sort(function(a, b) {
         if (a.title < b.title) {
@@ -222,6 +168,62 @@ function start() {
 
 }
 
-start();
 
-console.table(myLibrary);
+
+
+let myLibrary = [];
+/* 
+let bookA = new Book('The Hill We Climb: Poems', 'Amanda Gorman', 80, 'yes');
+myLibrary.push(bookA);
+let bookB = new Book('1984', 'George Orwell', 328, 'yes');
+myLibrary.push(bookB);
+let bookC = new Book('We Were Liars', 'E. Lockhart', 100, 'no');
+myLibrary.push(bookC);
+let bookD = new Book('W', 'authorD', 100, 'yes');
+myLibrary.push(bookD);
+let bookE = new Book('bookE', 'authorE', 100, 'yes');
+myLibrary.push(bookE);
+let bookF = new Book('bookF', 'authorF', 100, 'no');
+myLibrary.push(bookF);
+let bookG = new Book('bookG', 'authorA', 100, 'yes');
+myLibrary.push(bookG);
+let bookH = new Book('bookH', 'authorB', 100, 'yes');
+myLibrary.push(bookH);
+let bookI = new Book('bookI', 'authorC', 100, 'no');
+myLibrary.push(bookI);
+let bookJ = new Book('bookJ', 'authorD', 100, 'yes');
+myLibrary.push(bookJ);
+let bookK = new Book('bookK', 'authorE', 100, 'yes');
+myLibrary.push(bookK);
+let bookL = new Book('bookL', 'authorF', 100, 'no');
+myLibrary.push(bookL);
+let bookM = new Book('bookM', 'authorA', 100, 'yes');
+myLibrary.push(bookM);
+let bookN = new Book('bookN', 'authorB', 100, 'yes');
+myLibrary.push(bookN);
+let bookO = new Book('bookO', 'authorC', 100, 'no');
+myLibrary.push(bookO);
+let bookP = new Book('bookP', 'authorD', 100, 'yes');
+myLibrary.push(bookP);
+let bookQ = new Book('bookQ', 'authorE', 100, 'yes');
+myLibrary.push(bookQ);
+let bookR = new Book('bookR', 'authorF', 100, 'no');
+myLibrary.push(bookR);
+let bookS = new Book('bookS', 'authorA', 100, 'yes');
+myLibrary.push(bookS);
+let bookT = new Book('bookT', 'authorB', 100, 'yes');
+myLibrary.push(bookT);
+let bookU = new Book('bookU', 'authorC', 100, 'no');
+myLibrary.push(bookU);
+let bookV = new Book('A BOOK OF BOOKS', 'authorD', 100, 'yes');
+myLibrary.push(bookV);
+let bookW = new Book('BOATS AND CARS', 'authorE', 100, 'yes');
+myLibrary.push(bookW);
+let bookX = new Book('CATS PLEASE', 'authorF', 100, 'no');
+myLibrary.push(bookX); */
+
+
+
+localStorage.getItem('savedLibrary');
+
+start();
