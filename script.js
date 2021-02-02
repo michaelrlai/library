@@ -115,7 +115,7 @@ function readBook() {
 }
 
 function saveLibary() {
-    localStorage.setItem('savedLibrary', myLibrary);
+    localStorage.setItem('savedLibrary', JSON.stringify(myLibrary));
 }
 
 function start() {
@@ -172,6 +172,7 @@ function start() {
 
 
 let myLibrary = [];
+
 /* 
 let bookA = new Book('The Hill We Climb: Poems', 'Amanda Gorman', 80, 'yes');
 myLibrary.push(bookA);
@@ -224,6 +225,8 @@ myLibrary.push(bookX); */
 
 
 
-localStorage.getItem('savedLibrary');
+myLibrary = JSON.parse(localStorage.getItem('savedLibrary'));
+if (myLibrary === null) myLibrary = [];
+
 
 start();
