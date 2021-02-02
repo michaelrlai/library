@@ -170,13 +170,8 @@ function start() {
 }
 
 
-
-
-let myLibrary = [];
-
-
-let bookA = new Book('The Hill We Climb: Poems', 'Amanda Gorman', 80, 'yes');
-myLibrary.push(bookA);
+//let bookA = new Book('The Hill We Climb: Poems', 'Amanda Gorman', 80, 'yes');
+//myLibrary.push(bookA);
 /*
 let bookB = new Book('1984', 'George Orwell', 328, 'yes');
 myLibrary.push(bookB);
@@ -227,7 +222,10 @@ myLibrary.push(bookX); */
 
 
 
-//myLibrary = JSON.parse(localStorage.getItem('savedLibrary'));
+myLibrary = JSON.parse(localStorage.getItem('savedLibrary'));
+if (myLibrary === null) {
+    myLibrary = [];
+}
 
 
 start();
