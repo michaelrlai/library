@@ -174,9 +174,10 @@ function start() {
 
 let myLibrary = [];
 
-/* 
+
 let bookA = new Book('The Hill We Climb: Poems', 'Amanda Gorman', 80, 'yes');
 myLibrary.push(bookA);
+/*
 let bookB = new Book('1984', 'George Orwell', 328, 'yes');
 myLibrary.push(bookB);
 let bookC = new Book('We Were Liars', 'E. Lockhart', 100, 'no');
